@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wso2esb
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: wso2esb
+    spec:
+      containers:
+      - image: isim/wso2esb
+        name: wso2esb	
