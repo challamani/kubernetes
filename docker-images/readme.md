@@ -6,17 +6,18 @@ Docker for **windows (10)** bit different than other OS, **windows-10** has inbu
 
 [NAT] (https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/26704-nat-faq-00.html)
 
-![Image] (docker-architecture.png)
+![Image] (https://github.com/manichalla/kubernetes-objects/blob/master/docker-images/docker-architecture.png)
 
 
-![Image] (Docker_vs_VM.png)
+![Image] (https://github.com/manichalla/kubernetes-objects/blob/master/docker-images/Docker_vs_VM.png)
 
 
-###Docker setup
+### Docker setup
+
 [Reference](https://docs.docker.com/docker-for-windows/install/)
 
 
-###Docker basic commands
+### Docker basic commands
 
 * docker version (docker client version and server version has to be same)
 * docker build -t <image-name> . (dot refers current working directory files as input docker build command)
@@ -25,7 +26,7 @@ Docker for **windows (10)** bit different than other OS, **windows-10** has inbu
 * docker search <image-name*>
 * docker pull image
 * docker push image
-* docker run -d -p 80:80 --name <container-name> <image-name>
+* docker run -d -p <external-port>:<container-port> **--name** <container-name> <image-name>
 * docker rmi <image-name/image#> (to remove particular image)
 * docker rmi -f <image-name/image#> (to remove an image forcefully)
 * docker rmi -f $(docker images -a -q) (to remove all available images)
@@ -35,3 +36,13 @@ Docker for **windows (10)** bit different than other OS, **windows-10** has inbu
 * docker start <container-name/container#>
 * docker stop <container-name/container#>
 
+
+### Docker benefits 
+
+* Effective resource mangement 
+* Isolated application 
+* No need to spend time in setting up QA,Staging and Production environment 
+* Stack of custom images we can create (with specific features)
+* Maintenance easy
+* Build reusability 
+* Can easily integrate with other devOp tools
