@@ -25,20 +25,23 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 * sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubernetes-cni
 
 **Configure cgroup driver used by kubelet on Master Node**
+
 **Make sure that the cgroup driver used by kubelet is the same as the one used by Docker. Verify that your Docker cgroup driver matches the kubelet config**
 
 
-#### statements should execute only on master
+### statements should execute only on master (14 commands should exec only on master)
 
-##### Double check docker cgroup driver & kubeadm cgroup driver should be equal
+### Double check docker cgroup driver & kubeadm cgroup driver should be equal
 
 1. docker info | grep -i cgroup cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 2. sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
-##### Cluster creation
+### Cluster C reation
+
 3. kubeadm init sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=<master-node-ip> (secure cluster init, we have to store the init results)
 
-##### Master has to run with non-root user
+### Master has to run with non-root user
+
 4. sudo useradd <kubernete-master-user> -G sudo -m -s /bin/bash
 5. sudo passwd <kubernete-master-user>
 6. sudo su <kubernete-master-user>
@@ -50,29 +53,34 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 12. source ~/.bashrc
 
 **Apply your pod network (flannel)**
+
 13. kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 14. kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
 
+
 **Before execute join command in each worker node, we suppose to disable swapoff**
+
 * <swapoff -a>
 * <sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab>
-15. sudo kubeadm join --token <actual-token> <master-node-ip>:6443 --discovery-token-ca-cert-hash sha256:<hash> 
 
+15. sudo kubeadm join --token <actual-token> <master-node-ip>:6443 --discovery-token-ca-cert-hash sha256:<hash> 
 16. kubectl get nodes (should display all nodes, which all are connected with kubeadm - join with token)
 
 
-**If anything goes wrong like worker nodes not appearing in <kubectl get nodes> or problem with creating pods and container in worker-node can reset the process**
+**If anything goes wrong like worker nodes not appearing in <kubectl get nodes> or problem with creating pods and container in worker-node can reset the process.**
+
 **need to execute below statements in every node include master-node, after below statements we need to start from step-1 again**
 * kubeadm reset
 * service docker restart
 * systemctl kubelet restart
 
 
-[Create cluster kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
-[Kubernetes in 10 minutes](https://blog.alexellis.io/kubernetes-in-10-minutes/)
+* [Create cluster kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
+
+* [Kubernetes in 10 minutes](https://blog.alexellis.io/kubernetes-in-10-minutes/)
 
 
-#### Kubectl basic commands
+### Kubectl basic commands
 
 * kubectl get nodes
 * kubectl cluster-info
@@ -94,17 +102,19 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 * kubectl describe ingress <ingress-name>
 
 
-##### Examples:
+#### Examples:
 
-kubectl run webserver --image=nginx:alpine --replicas=2
-kubectl expose deployment webserver --type=LoadBalancer --port=80
 
-kubectl run camunda --image=camunda/camunda-bpm-platform:latest --replicas=2
-kubectl expose deployment/camunda --type=LoadBalancer --port=8080
+1. kubectl run webserver --image=nginx:alpine --replicas=2
+2. kubectl expose deployment webserver --type=LoadBalancer --port=80
 
-kubectl run wso2apim --image=isim/wso2apim
-kubectl expose deployment/wso2apim --type=LoadBalancer --port=9443
 
-kubectl run wso2esb --image=isim/wso2esb
-kubectl expose deployment/wso2esb --type=LoadBalancer --port=9443
+1. kubectl run camunda --image=camunda/camunda-bpm-platform:latest --replicas=2
+2. kubectl expose deployment/camunda --type=LoadBalancer --port=8080
+
+1. kubectl run wso2apim --image=isim/wso2apim
+2. kubectl expose deployment/wso2apim --type=LoadBalancer --port=9443
+
+1. kubectl run wso2esb --image=isim/wso2esb
+2. kubectl expose deployment/wso2esb --type=LoadBalancer --port=9443
 
