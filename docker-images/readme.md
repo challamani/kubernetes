@@ -1,15 +1,18 @@
 Docker
 =======
 
+**Docker is an open source software platform to create, deploy and manage virtualized application containers on a common operating system (OS).**
+
+
 Docker for **windows (10)** bit different than other OS, **windows-10** has inbuild hyper-v management tool, we can create multiple VMs, we can setup primary virtual switchon Hyper-V to establish the connection with private network.On Hyper-V we can find docker NAT (Network Address Translation) to communicate with other network. 
 
 
-[NAT] (https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/26704-nat-faq-00.html)
+[NAT](https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/26704-nat-faq-00.html)
 
-![Image] (https://github.com/manichalla/kubernetes-objects/blob/master/docker-images/docker-architecture.png)
+![Image](https://github.com/manichalla/kubernetes-objects/blob/master/docker-images/docker-architecture.png)
 
 
-![Image] (https://github.com/manichalla/kubernetes-objects/blob/master/docker-images/Docker_vs_VM.png)
+![Image](https://github.com/manichalla/kubernetes-objects/blob/master/docker-images/Docker_vs_VM.png)
 
 
 ### Docker setup
