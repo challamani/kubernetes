@@ -3,7 +3,34 @@ Kubernetes
 
 **Kubernetes is an open-source system for automating deployment, scaling and management of containerized applications that was originally designed by Google and now maintained by the Cloud Native Computing Foundation**
 
+
+
+## Container vs VM
+
+![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s-images/vm_container.jpg)
+
+
 [Architecture](https://x-team.com/blog/introduction-kubernetes-architecture/)
+
+
+
+
+
+## Architecture
+
+![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s-images/k8s_architecture.jpg)
+
+
+## K8S Usecases
+
+![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s-images/K8S_Usecases.jpg)
+
+
+## K8S Pod Networking
+
+![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s-images/k8s_pod_network.jpg)
+
+
 
 ### Kubernetes Cluster setup
 
@@ -63,7 +90,7 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 * <swapoff -a>
 * <sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab>
 
-15. sudo kubeadm join --token <actual-token> <master-node-ip>:6443 --discovery-token-ca-cert-hash sha256:<hash> 
+15. sudo kubeadm join --token token# master-node-ip:6443 --discovery-token-ca-cert-hash sha256:hash# 
 16. kubectl get nodes (should display all nodes, which all are connected with kubeadm - join with token)
 
 
@@ -89,32 +116,32 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 * kubectl get pods -o wide
 * kubectl get deployments 
 * kubectl describe pods
-* kubectl logs <pod>
-* kubectl run <pod-name> --image=<image#:tag> (pod creation)
+* kubectl logs pod
+* kubectl run pod-name --image=image#:tag (pod creation)
 
 * kubectl get services/svc
-* kubectl describe service <service-name>
-* kubectl scale deployment <service-name> --replicas=3
-* kubectl delete service <service-name>
-* kubectl expose deployment/<pod-name> --type=<LoadBalancer/NodePort> --port=<service-port>
+* kubectl describe service service-name
+* kubectl scale deployment service-name --replicas=3
+* kubectl delete service service-name
+* kubectl expose deployment/pod-name --type=LoadBalancer/NodePort --port=service-port
 
 * kubectl get ingress/ing
-* kubectl describe ingress <ingress-name>
+* kubectl describe ingress ingress-name#
 
 
 #### Examples:
 
 
-1. kubectl run webserver --image=nginx:alpine --replicas=2
-2. kubectl expose deployment webserver --type=LoadBalancer --port=80
+. kubectl run webserver --image=nginx:alpine --replicas=2
+. kubectl expose deployment webserver --type=LoadBalancer --port=80
 
 
-1. kubectl run camunda --image=camunda/camunda-bpm-platform:latest --replicas=2
-2. kubectl expose deployment/camunda --type=LoadBalancer --port=8080
+. kubectl run camunda --image=camunda/camunda-bpm-platform:latest --replicas=2
+. kubectl expose deployment/camunda --type=LoadBalancer --port=8080
 
-1. kubectl run wso2apim --image=isim/wso2apim
-2. kubectl expose deployment/wso2apim --type=LoadBalancer --port=9443
+. kubectl run wso2apim --image=isim/wso2apim
+. kubectl expose deployment/wso2apim --type=LoadBalancer --port=9443
 
-1. kubectl run wso2esb --image=isim/wso2esb
-2. kubectl expose deployment/wso2esb --type=LoadBalancer --port=9443
+. kubectl run wso2esb --image=isim/wso2esb
+. kubectl expose deployment/wso2esb --type=LoadBalancer --port=9443
 
