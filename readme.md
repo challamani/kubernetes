@@ -7,7 +7,7 @@ Kubernetes
 
 ## Container vs VM
 
-![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s-images/vm_container.jpg)
+![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s_images/vm_container.jpg)
 
 
 [Architecture](https://x-team.com/blog/introduction-kubernetes-architecture/)
@@ -30,7 +30,7 @@ Kubernetes
 
 ![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s_images/k8s_pod_network.jpg)
 
-
+[Pod Network](https://medium.com/google-cloud/understanding-kubernetes-networking-services-f0cb48e4cc82)
 
 ### Kubernetes Cluster setup
 
