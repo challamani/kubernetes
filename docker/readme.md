@@ -5,12 +5,17 @@ Docker
 
 
 Docker for **windows (10)** bit different than other OS, **windows-10** has in-built hyper-v management tool, we can create multiple VMs, we can setup primary virtual switch-on Hyper-V to establish the connection with private network.On Hyper-V we can find docker NAT (Network Address Translation) to communicate with other network. 
+
 ###Type - 1 Hypervisor
-**Runs on top of Computer Physical Hardware**
+
+
+**Runs on top of Computer Physical Hardware, a tiny software take care of virtualization process, 
+it enables multiple operating systems to share same computer hardware**
+
 ![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/hypervisor_type_1.jpg)
 
 ###Type - 2 Hypervisor
-**Runs on top of Host-OS, it adds some delay in bring-up the VM and system resource accessing**
+**Runs on top of Host-OS, it adds some delay in bring-up the VMs and allocating system resources**
 ![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/hypervisor_type_2.jpg)
 
 
