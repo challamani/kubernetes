@@ -7,7 +7,7 @@ Kubernetes
 
 ## Container vs VM
 
-![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s_images/vm_container.jpg)
+![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/vm_container.jpg)
 
 
 [Architecture](https://x-team.com/blog/introduction-kubernetes-architecture/)
@@ -18,17 +18,17 @@ Kubernetes
 
 ## Architecture
 
-![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s_images/k8s_architecture.jpg)
+![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_architecture.jpg)
 
 
 ## K8S Usecases
 
-![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s_images/K8S_Usecases.jpg)
+![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_usecases.jpg)
 
 
 ## K8S Pod Networking
 
-![Image](https://github.com/manichalla/kubernetes-objects/blob/master/k8s_images/k8s_pod_network.jpg)
+![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_pod_network.jpg)
 
 [Pod Network](https://medium.com/google-cloud/understanding-kubernetes-networking-services-f0cb48e4cc82)
 
