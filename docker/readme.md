@@ -6,27 +6,37 @@ Docker
 
 Docker for **windows (10)** bit different than other OS, **windows-10** has in-built hyper-v management tool, we can create multiple VMs, we can setup primary virtual switch-on Hyper-V to establish the connection with private network.On Hyper-V we can find docker NAT (Network Address Translation) to communicate with other network. 
 
-###Type - 1 Hypervisor
+Type - 1 Hypervisor
+-------------------
 
 
 **Runs on top of Computer Physical Hardware, a tiny software take care of virtualization process, 
-it enables multiple operating systems to share same computer hardware**
+it enables multiple operating systems to share same computer hardware.**
 
 ![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/hypervisor_type_1.jpg)
 
-###Type - 2 Hypervisor
-**Runs on top of Host-OS, it adds some delay in bring-up the VMs and allocating system resources**
+Type - 2 Hypervisor
+-------------------
+
+**Runs on top of Host-OS, it adds some delay in bringing-up the VMs and in allocating system resources as well.**
 ![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/hypervisor_type_2.jpg)
 
 
-[NAT](https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/26704-nat-faq-00.html)
 
-![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/docker_architecture.png)
-
+Containers vs VM
+----------------
 
 ![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/container_vs_vm_2.jpg)
 
+Docker Architecture
+-------------------
+
+![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/docker_architecture.png)
+
 ![Image](https://github.com/java-manikanta/kubernetes/blob/master/docker/draft/container_vs_vm.png)
+
+
+[NAT](https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/26704-nat-faq-00.html)
 
 
 ### Docker setup
