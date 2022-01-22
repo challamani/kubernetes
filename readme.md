@@ -10,14 +10,8 @@ Kubernetes
 
 
 
-## Architecture
-
-![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_architecture.jpg)
-
-
-## K8S Usecases
-
-![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_usecases.jpg)
+## Usecases Architecture
+<img src="https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_usecases.jpg" width="400" height="400"> <img src="https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_architecture.jpg" width="560" height="400"> 
 
 
 ## K8S Pod Networking
