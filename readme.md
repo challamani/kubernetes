@@ -25,7 +25,9 @@ Kubernetes
 We have achieved kubernetes-cluster setup artifact with below pre-requisites 
 
 **One master node (Ubuntu - Desktop OS 64 bite), 2 worker nodes (Ubuntu Server OS - 64 bit)** 
+
 Worker nodes are VM instances in the same machine (with externally available instances, here we have to use whatever master-node uses network interface, eth0,eth1 and wifi)
+
 **Worker node should build with minimum 2 GB RAM, 2 cores and 30 GB ROM**
 
 Note: Need to check connectivity among all nodes, ssh or ping service
@@ -33,7 +35,6 @@ Note: Need to check connectivity among all nodes, ssh or ping service
 ### Setup steps 
 
 Below 4 steps we need to execute on each node (both master & slave nodes)
-
 * sudo apt-get update && sudo apt-get install -qy docker.io
 * sudo apt-get update && sudo apt-get install -y apt-transport-https && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 * echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" sudo tee -a /etc/apt/sources.list.d/kubernetes.list && sudo apt-get update
