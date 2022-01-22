@@ -24,11 +24,11 @@ Kubernetes
 
 We have achieved kubernetes-cluster setup artifact with below pre-requisites 
 
-** One master node (Ubuntu - Desktop OS 64 bite), 2 worker nodes (Ubuntu Server OS - 64 bit)
-** Worker nodes are VM instances in same machine (with externally available instances, here we have to use whatever master-node uses network interface, eth0,eth1 and wifi)
-** Worker node should build with minimum 2 GB RAM, 2 cores and 30 GB ROM
+**One master node (Ubuntu - Desktop OS 64 bite), 2 worker nodes (Ubuntu Server OS - 64 bit)** 
+Worker nodes are VM instances in the same machine (with externally available instances, here we have to use whatever master-node uses network interface, eth0,eth1 and wifi)
+**Worker node should build with minimum 2 GB RAM, 2 cores and 30 GB ROM**
 
-Note: need to check connectivity among all nodes, ssh or ping service
+Note: Need to check connectivity among all nodes, ssh or ping service
 
 ### Setup steps 
 
@@ -51,7 +51,7 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 1. docker info | grep -i cgroup cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 2. sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
-### Cluster C reation
+### Cluster Creation
 
 3. kubeadm init sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=<master-node-ip> (secure cluster init, we have to store the init results)
 
