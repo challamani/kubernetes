@@ -27,3 +27,63 @@
 
 
 
+## Minikube in Mac
+
+## Start Docker Desktop
+
+## Start Minikube
+
+- `brew install minikube`
+- `minikube start --driver=docker --kubernetes-version=v1.29.10`
+
+## Install Istio 
+
+### Setup istioctl CLI
+
+```shell
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-1.*.*
+export PATH=$PWD/bin:$PATH
+echo 'export PATH=$PATH:'"$PWD"'/bin' >> ~/.zshrc
+source ~/.zshrc
+istioctl version
+```
+
+### Perform compatibility checks
+
+```shell
+istioctl x precheck
+```
+
+### Install istio
+
+```shell
+istioctl install --set profile=demo -y
+
+#enable istio-injection for default namespace
+kubectl label namespace default istio-injection=enabled
+```
+
+### Install httpbin service in default namespace
+
+```shell
+#yaml contains deployment,service,gateway and virtualservice resources.
+kubectl apply -f kubernetes/resources/httpbin.yaml
+```
+
+### ExternalIP for Ingress Gateway
+
+```shell
+#run following command in new terminal
+sudo minikube tunnel
+kubectl get svc -n istio-system istio-ingressgateway
+
+#add hostname mapping
+echo "127.0.0.1 httpbin.local" | sudo tee -a /etc/hosts
+```
+
+### Perform curl calls to httpbin
+```shell
+curl -v http://httpbin.local/get
+curl -v http://httpbin.local/status/200
+```

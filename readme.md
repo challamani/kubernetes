@@ -6,19 +6,16 @@ Kubernetes
 
 [Architecture](https://x-team.com/blog/introduction-kubernetes-architecture/)
 
-
-
-
 ## Architecture
-![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_architecture.jpg)
+![Image](https://github.com/challamani/kubernetes/blob/master/kubernetes/draft/k8s_architecture.jpg)
 
 ## Usecases & Architecture
-<img src="https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_usecases.jpg" width="400" height="400"> 
+<img src="https://github.com/challamani/kubernetes/blob/master/kubernetes/draft/k8s_usecases.jpg" width="400" height="400"> 
 
 
 ## K8S Pod Networking
 
-![Image](https://github.com/java-manikanta/kubernetes/blob/master/kubernetes/draft/k8s_pod_network.jpg)
+![Image](https://github.com/challamani/kubernetes/blob/master/kubernetes/draft/k8s_pod_network.jpg)
 
 [Pod Network](https://medium.com/google-cloud/understanding-kubernetes-networking-services-f0cb48e4cc82)
 
@@ -120,19 +117,19 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 * kubectl describe ingress ingress-name#
 
 
-#### Examples:
+### Examples:
 
+- kubectl run webserver --image=nginx:alpine --replicas=2
+- kubectl expose deployment webserver --type=LoadBalancer --port=80
 
-. kubectl run webserver --image=nginx:alpine --replicas=2
-. kubectl expose deployment webserver --type=LoadBalancer --port=80
+#### Camunda
+- kubectl run camunda --image=camunda/camunda-bpm-platform:latest --replicas=2
+- kubectl expose deployment/camunda --type=LoadBalancer --port=8080
 
+#### Wso2 APIM
+- kubectl run wso2apim --image=isim/wso2apim
+- kubectl expose deployment/wso2apim --type=LoadBalancer --port=9443
 
-. kubectl run camunda --image=camunda/camunda-bpm-platform:latest --replicas=2
-. kubectl expose deployment/camunda --type=LoadBalancer --port=8080
-
-. kubectl run wso2apim --image=isim/wso2apim
-. kubectl expose deployment/wso2apim --type=LoadBalancer --port=9443
-
-. kubectl run wso2esb --image=isim/wso2esb
-. kubectl expose deployment/wso2esb --type=LoadBalancer --port=9443
-
+#### Wso2 ESB
+- kubectl run wso2esb --image=isim/wso2esb
+- kubectl expose deployment/wso2esb --type=LoadBalancer --port=9443
