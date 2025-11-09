@@ -1,10 +1,13 @@
 Kubernetes
 =======
 
-**Kubernetes is an open-source system for automating deployment, scaling and management of containerized applications that was originally designed by Google and now maintained by the Cloud Native Computing Foundation**
+Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications that Google originally designed and is now maintained by the Cloud Native Computing Foundation**
 
 
 [Architecture](https://x-team.com/blog/introduction-kubernetes-architecture/)
+
+
+
 
 ## Architecture
 ![Image](https://github.com/challamani/kubernetes/blob/master/kubernetes/draft/k8s_architecture.jpg)
@@ -21,13 +24,13 @@ Kubernetes
 
 ### Kubernetes Cluster setup
 
-We have achieved kubernetes-cluster setup artifact with below pre-requisites 
+We have achieved the Kubernetes-cluster setup artifact with the below pre-requisites 
 
 **One master node (Ubuntu - Desktop OS 64 bite), 2 worker nodes (Ubuntu Server OS - 64 bit)** 
 
-Worker nodes are VM instances in the same machine (with externally available instances, here we have to use whatever master-node uses network interface, eth0,eth1 and wifi)
+Worker nodes are VM instances in the same machine (with externally available instances,; we have to use whatever master node uses network interface, eth0,eth1 and wifi)
 
-**Worker node should build with minimum 2 GB RAM, 2 cores and 30 GB ROM**
+**Worker node should be built with a minimum of 2 GB RAM, 2 cores, and 30 GB ROM**
 
 Note: Need to check connectivity among all nodes, ssh or ping service
 
@@ -97,24 +100,24 @@ Below 4 steps we need to execute on each node (both master & slave nodes)
 
 ### Kubectl basic commands
 
-* kubectl get nodes
-* kubectl cluster-info
-* kubectl config view
+* `kubectl get nodes`
+* `kubectl cluster-info`
+* `kubectl config view`
 
-* kubectl get pods -o wide
-* kubectl get deployments 
-* kubectl describe pods
-* kubectl logs pod
-* kubectl run pod-name --image=image#:tag (pod creation)
+* `kubectl get pods -o wide`
+* `kubectl get deployments`
+* `kubectl describe pods`
+* `kubectl logs pod`
+* `kubectl run pod-name --image=image#:tag (pod creation)`
 
-* kubectl get services/svc
-* kubectl describe service service-name
-* kubectl scale deployment service-name --replicas=3
-* kubectl delete service service-name
-* kubectl expose deployment/pod-name --type=LoadBalancer/NodePort --port=service-port
+* `kubectl get services/svc`
+* `kubectl describe service service-name`
+* `kubectl scale deployment name --replicas=3`
+* `kubectl delete service service-name`
+* `kubectl expose deployment/pod-name --type=LoadBalancer/NodePort --port=service-port`
 
-* kubectl get ingress/ing
-* kubectl describe ingress ingress-name#
+* `kubectl get ingress/ing`
+* `kubectl describe ingress ingress-name#`
 
 
 ### Examples:
